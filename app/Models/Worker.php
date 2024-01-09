@@ -10,4 +10,5 @@ class Worker extends Model
     use HasFactory;
 
     protected $table='workers';
+    protected $guarded = false;
 }
