@@ -17,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test',[WorkerController::class,"index"]);
+Route::get('/workers',[WorkerController::class,"index"]);
+Route::get('/workers/show',[WorkerController::class,"show"]);
+Route::get('/workers/create',[WorkerController::class,"create"]);
+Route::get('/workers/delete',[WorkerController::class,"delete"]);
+Route::get('/workers/update',[WorkerController::class,"update"]);
