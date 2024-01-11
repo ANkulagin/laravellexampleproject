@@ -22,6 +22,7 @@ INDEX
             <div>{{$worker->age}}</div>
             <div>
                 <a href="{{ route('worker.show',['worker'=> $worker->id]) }}">Просмотреть</a>
+                <a href="{{ route('worker.edit',['worker'=> $worker->id]) }}">Редактировать</a>
             </div>
         </div>
         <hr>
