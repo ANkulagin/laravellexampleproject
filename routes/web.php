@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::get('/workers',[WorkerController::class,"index"])->name('worker.index');
 Route::get('/workers/create',[WorkerController::class,"create"])->name('worker.create');
 Route::get('/workers/{worker}',[WorkerController::class,"show"])->name('worker.show');
+Route::get('/workers/{worker}/edit',[WorkerController::class,'edit'])->name('worker.edit');
+Route::delete('/workers/{worker}',[WorkerController::class,"delete"])->name('worker.delete');
 Route::post('/workers',[WorkerController::class,"store"])->name('worker.store');
-Route::get('/workers/delete',[WorkerController::class,"delete"])->name('worker.delete');
-Route::get('/workers/update',[WorkerController::class,"update"])->name('worker.update');
+Route::patch('/workers/{worker}',[WorkerController::class,"update"])->name('worker.update');
+
