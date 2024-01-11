@@ -11,13 +11,13 @@ class WorkerController extends Controller
     public function index()
     {
         $workers = Worker::all();
-        return $workers;
+        return view('worker.index',compact('workers'));
     }
 
-    public function show()
+    public function show(Worker $worker)
     {
-        $worker =  Worker::find(1);
-        return $worker;
+        //$worker = Worker::find($worker); из за передачи модели не нужно прописывать проверку на отсутсиве и тд
+        return view('worker.show',compact('worker'));
     }
 
     public function create()
@@ -55,5 +55,6 @@ class WorkerController extends Controller
             return "Worker not found.";
         }
     }
+
 }
 
