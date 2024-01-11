@@ -36,6 +36,10 @@ INDEX
         </div>
         <hr>
     @endforeach
+    //pagination
+    <div>
+        {{ $workers->links()}}
+    </div>
 </div>
 </body>
 </html>
