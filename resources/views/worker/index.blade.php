@@ -10,6 +10,9 @@
 <body>
 INDEX
 <div>
+    <div>
+        <a href="{{route('worker.create')}}">Создать раба</a>
+    </div>
     <hr>
     @foreach($workers as $worker)
         <div>
