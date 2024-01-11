@@ -14,12 +14,49 @@ Create Page
     <div>
         <form action="{{route('worker.store')}}" method="post">
             @csrf
-            <div style="margin-bottom: 15px"><input type="text" name="name">ИМЯ</div>
-            <div style="margin-bottom: 15px"><input type="text" name="surname">ФАМИЛИЯ</div>
-            <div style="margin-bottom: 15px"><input type="email" name="email">ПОЧТА</div>
-            <div style="margin-bottom: 15px"><input type="number" name="age">ВОЗРАСТ</div>
-            <div style="margin-bottom: 15px"><textarea name="description"></textarea>ОПИСАНИЕ</div>
-            <div style="margin-bottom: 15px"><input type="checkbox" name="is_married">ЖЕНАТ</div>
+            <div style="margin-bottom: 15px">
+                <input type="text" name="name" placeholder="name" value="{{ old('name') }}">
+                ИМЯ
+                @error('name')
+                <div>
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div style="margin-bottom: 15px"><input type="text" name="surname" placeholder="surname"
+                                                    value="{{ old('surname') }}">
+                ФАМИЛИЯ
+                @error('surname')
+                <div>
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div style="margin-bottom: 15px"><input type="email" name="email" placeholder="email"
+                                                    value="{{ old('email') }}">
+                ПОЧТА
+                @error('email')
+                <div>
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div style="margin-bottom: 15px"><input type="number" name="age" placeholder="age" value="{{ old('age') }}">
+                ВОЗРАСТ
+                @error('age')
+                <div>
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div style="margin-bottom: 15px"><textarea name="description" placeholder="description"
+                                                       value="{{ old('description') }}"></textarea>
+                ОПИСАНИЕ
+            </div>
+            <div style="margin-bottom: 15px"><input type="checkbox" name="is_married"
+                                                    value="{{ old('is_married')=='on'?'checked':'' }}">
+                ЖЕНАТ
+            </div>
             <div style="margin-bottom: 15px"><input type="submit" value="Добавить"></div>
         </form>
     </div>

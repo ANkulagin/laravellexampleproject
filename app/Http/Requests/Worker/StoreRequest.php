@@ -25,4 +25,13 @@ class StoreRequest extends FormRequest
             'is_married'=>'nullable|string ',
         ];
     }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Введи имя',
+            'surname.required' => 'Введи фамилию настоящую',
+            'email.required' => 'Введи почту настоящую ',
+            'age.required' => 'Введи возвраст',
+        ];
+    }
 }

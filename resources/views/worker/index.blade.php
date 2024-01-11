@@ -10,8 +10,25 @@
 <body>
 INDEX
 <div>
+
+
     <div>
-        <a href="{{route('worker.create')}}">Создать раба</a>
+        <a href="{{route('worker.create')}}">Создать работника</a>
+    </div>
+    <hr>
+    <div>
+        <form action="{{route('worker.index')}}">
+            <input type="text" name="name" placeholder="name" value="{{ request()->get('name') }}">
+            <input type="text" name="surname" placeholder="surname" value="{{ request()->get('surname') }}">
+            <input type="text" name="email" placeholder="email" value="{{ request()->get('email') }}">
+            <input type="number" name="from" placeholder="from" value="{{ request()->get('from') }}">
+            <input type="number" name="to" placeholder="to" value="{{ request()->get('to') }}">
+            <input type="text" name="description" placeholder="description" value="{{ request()->get('description') }}">
+            <input type="checkbox" name="is_married" id="isMarried" value="{{ request()->get('is_married') }}">
+            <label for="isMarried">в браке/не в браке</label>
+            <input type="submit">
+            <a href="{{route('worker.index')}}">снять фильтры</a>
+        </form>
     </div>
     <hr>
     @foreach($workers as $worker)
@@ -36,6 +53,10 @@ INDEX
         </div>
         <hr>
     @endforeach
+    //pagination
+    <div>
+        {{ $workers->links()}}
+    </div>
 </div>
 </body>
 </html>
