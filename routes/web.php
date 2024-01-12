@@ -14,14 +14,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Главная страница
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/workers',[WorkerController::class,"index"])->name('worker.index');
-Route::get('/workers/create',[WorkerController::class,"create"])->name('worker.create');
-Route::get('/workers/{worker}',[WorkerController::class,"show"])->name('worker.show');
-Route::get('/workers/{worker}/edit',[WorkerController::class,'edit'])->name('worker.edit');
-Route::delete('/workers/{worker}',[WorkerController::class,"delete"])->name('worker.delete');
-Route::post('/workers',[WorkerController::class,"store"])->name('worker.store');
-Route::patch('/workers/{worker}',[WorkerController::class,"update"])->name('worker.update');
 
+// Список работников
+Route::get('/workers', [WorkerController::class, "index"])->name('worker.index');
+
+// Форма создания нового работника
+Route::get('/workers/create', [WorkerController::class, "create"])->name('worker.create');
+
+// Просмотр информации о работнике
+Route::get('/workers/{worker}', [WorkerController::class, "show"])->name('worker.show');
+
+// Форма редактирования информации о работнике
+Route::get('/workers/{worker}/edit', [WorkerController::class, 'edit'])->name('worker.edit');
+
+// Удаление работника
+Route::delete('/workers/{worker}', [WorkerController::class, "delete"])->name('worker.delete');
+
+// Создание нового работника
+Route::post('/workers', [WorkerController::class, "store"])->name('worker.store');
+
+// Обновление информации о работнике
+Route::patch('/workers/{worker}', [WorkerController::class, "update"])->name('worker.update');

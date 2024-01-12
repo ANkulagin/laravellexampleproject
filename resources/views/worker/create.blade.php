@@ -1,63 +1,85 @@
-<!doctype html>
-<html lang=ru>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Create Page</title>
 </head>
 <body>
+<!-- Заголовок страницы -->
 Create Page
 <div>
     <hr>
     <div>
-        <form action="{{route('worker.store')}}" method="post">
-            @csrf
+        <!-- Форма для создания нового работника -->
+        <form action="{{ route('worker.store') }}" method="post">
+            @csrf <!-- CSRF-защита -->
+
+            <!-- Поле для ввода имени -->
             <div style="margin-bottom: 15px">
                 <input type="text" name="name" placeholder="name" value="{{ old('name') }}">
                 ИМЯ
                 @error('name')
+                <!-- Отображение ошибки валидации для имени -->
                 <div>
-                    {{$message}}
+                    {{ $message }}
                 </div>
                 @enderror
             </div>
-            <div style="margin-bottom: 15px"><input type="text" name="surname" placeholder="surname"
-                                                    value="{{ old('surname') }}">
+
+            <!-- Поле для ввода фамилии -->
+            <div style="margin-bottom: 15px">
+                <input type="text" name="surname" placeholder="surname" value="{{ old('surname') }}">
                 ФАМИЛИЯ
                 @error('surname')
+                <!-- Отображение ошибки валидации для фамилии -->
                 <div>
-                    {{$message}}
+                    {{ $message }}
                 </div>
                 @enderror
             </div>
-            <div style="margin-bottom: 15px"><input type="email" name="email" placeholder="email"
-                                                    value="{{ old('email') }}">
+
+            <!-- Поле для ввода почты -->
+            <div style="margin-bottom: 15px">
+                <input type="email" name="email" placeholder="email" value="{{ old('email') }}">
                 ПОЧТА
                 @error('email')
+                <!-- Отображение ошибки валидации для почты -->
                 <div>
-                    {{$message}}
+                    {{ $message }}
                 </div>
                 @enderror
             </div>
-            <div style="margin-bottom: 15px"><input type="number" name="age" placeholder="age" value="{{ old('age') }}">
+
+            <!-- Поле для ввода возраста -->
+            <div style="margin-bottom: 15px">
+                <input type="number" name="age" placeholder="age" value="{{ old('age') }}">
                 ВОЗРАСТ
                 @error('age')
+                <!-- Отображение ошибки валидации для возраста -->
                 <div>
-                    {{$message}}
+                    {{ $message }}
                 </div>
                 @enderror
             </div>
-            <div style="margin-bottom: 15px"><textarea name="description" placeholder="description"
-                                                       value="{{ old('description') }}"></textarea>
+
+            <!-- Поле для ввода описания -->
+            <div style="margin-bottom: 15px">
+                <textarea name="description" placeholder="description">{{ old('description') }}</textarea>
                 ОПИСАНИЕ
             </div>
-            <div style="margin-bottom: 15px"><input type="checkbox" name="is_married"
-                                                    value="{{ old('is_married')=='on'?'checked':'' }}">
+
+            <!-- Поле для указания семейного положения -->
+            <div style="margin-bottom: 15px">
+                <input type="checkbox" name="is_married" {{ old('is_married') == 'on' ? 'checked' : '' }}>
                 ЖЕНАТ
             </div>
-            <div style="margin-bottom: 15px"><input type="submit" value="Добавить"></div>
+
+            <!-- Кнопка для отправки формы -->
+            <div style="margin-bottom: 15px">
+                <input type="submit" value="Добавить">
+            </div>
         </form>
     </div>
 </div>
